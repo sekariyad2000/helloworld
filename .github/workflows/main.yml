@@ -5,7 +5,9 @@
        branches:
          - main
    
-   permissions: read-all
+   permissions:
+      contents: read
+      packages: write
    
    jobs:
      deploy:
