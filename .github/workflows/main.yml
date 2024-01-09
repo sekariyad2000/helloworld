@@ -1,0 +1,27 @@
+name: Kubernetes Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Kubernetes
+        uses: azure/kubernetes-set-up-kubectl@v1
+        with:
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+
+      - name: Deploy Website
+        run: |
+          # Your deployment script or kubectl commands here
+        env:
+          KUBE_NAMESPACE: default
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
