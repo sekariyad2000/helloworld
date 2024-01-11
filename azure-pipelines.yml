@@ -15,11 +15,8 @@ steps:
     rootFolderOrFile: '$(build.sourcesDirectory)'
     includeRootFolder: false
 - task: PublishBuildArtifacts@1
-- task: Kubernetes@1
+- task: KubernetesManifest@1
   inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'Kubernetes'
-    command: 'expose'
-    arguments: 'rc nginx --port=80 --target-port=8000'
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Azure Container Registry'
+    action: 'deploy'
+    connectionType: 'kubernetesServiceConnection'
+    kubernetesServiceConnection: 'Kubernetes'
