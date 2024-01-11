@@ -21,7 +21,6 @@ steps:
     action: 'deploy'
     connectionType: 'kubernetesServiceConnection'
     kubernetesServiceConnection: 'Kubernetes'
-    manifests: '**/*.yaml'
     containers: 'farosolution-6bfc7987f9-x5phm'
      
 
