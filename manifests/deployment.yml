@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: faro 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: faro
+  template:
+    metadata:
+      labels:
+        app: faro 
+    spec:
+      containers:
+        - name: faro 
+          image: faroprodregistry.azurecr.io/faro
+          ports:
+          - containerPort: 80
